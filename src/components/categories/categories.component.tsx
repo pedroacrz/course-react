@@ -1,26 +1,26 @@
-// import { useEffect, useState } from 'react'
-// import axios from 'axios'
-// import ICategory from '../../types/category.types'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import ICategory from '../../types/category.types'
 import './categories.styles.css'
-// import env from '../../config/env.config'
+import env from '../../config/env.config'
 
 const Categories = () => {
-    // const [categories, setCategories] = useState<ICategory[]>([])
+    const [categories, setCategories] = useState<ICategory[]>([])
 
-    // const fetchCategories = async () => {
-    //     try {
-    //         const { data } = await axios.get(`${env.apiUrl}/api/categories`)
-    //         setCategories(data)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+    const fetchCategories = async () => {
+        try {
+            const { data } = await axios.get(`${env.apiUrl}/api/category`)
+            setCategories(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-    // console.log({ categories })
+    console.log({ categories })
 
-    // useEffect(() => {
-    //     fetchCategories()
-    // }, [])
+    useEffect(() => {
+        fetchCategories()
+    }, [])
 
     return (
         <div className="categories-container">

@@ -1,13 +1,12 @@
-import { FunctionComponent } from 'react'
-// import Categories from '../../components/categories/categories.component'
+import Categories from '../../components/categories/categories.component'
 import Header from '../../components/header/header.components'
 
-const HomePage: FunctionComponent = () => {
+const HomePage = () => {
     return (
-        <div>
+        <>
             <Header />
-            {/* <Categories /> */}
-        </div>
+            <Categories />
+        </>
     )
 }
 
