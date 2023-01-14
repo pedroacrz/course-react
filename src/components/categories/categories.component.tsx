@@ -4,35 +4,37 @@ import ICategory from '../../types/category.types'
 import './categories.styles.css'
 import env from '../../config/env.config'
 import CategoryItem from '../category-item/category-item.component'
+import { CategoriesContainer, CategoriesContent } from './categories.styles'
 
 const Categories = () => {
-    const [categories, setCategories] = useState<ICategory[]>([])
+  const [categories, setCategories] = useState<ICategory[]>([])
 
-    const fetchCategories = async () => {
-        try {
-            const { data } = await axios.get(`${env.apiUrl}/api/category`)
-            setCategories(data)
-        } catch (error) {
-            console.log(error)
-        }
+  const fetchCategories = async () => {
+    try {
+      const { data } = await axios.get(`${env.apiUrl}/api/category`)
+      setCategories(data)
+    } catch (error) {
+      console.log(error)
     }
+  }
 
-    console.log({ categories })
+  console.log({ categories })
 
-    useEffect(() => {
-        fetchCategories()
-    }, [])
+  useEffect(() => {
+    fetchCategories()
+  }, [])
 
-    return (
-        <div className="categories-container">
-            <div className="categories-content">
-                {categories.map(category =>
-                    <div key={category.id}>
-                        <CategoryItem category={category} />
-                    </div>)}
-            </div>
-        </div>
-    )
+  return (
+    <CategoriesContainer>
+      <CategoriesContent>
+        {categories.map((category) => (
+          <div key={category.id}>
+            <CategoryItem category={category} />
+          </div>
+        ))}
+      </CategoriesContent>
+    </CategoriesContainer>
+  )
 }
 
 export default Categories

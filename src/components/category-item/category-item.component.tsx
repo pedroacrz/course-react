@@ -1,20 +1,21 @@
 import { FunctionComponent } from 'react'
 import ICategory from '../../types/category.types'
+import { CategoryItemContainer, CategoryName } from './category-item.styles'
 import './category-item.styles.css'
 
 interface ICategoryItemProps {
-    category: ICategory
+  category: ICategory
 }
 
 const CategoryItem: FunctionComponent<ICategoryItemProps> = ({ category }) => {
-    return (
-        <div className="category-item-container" style={{ backgroundImage: `url(${category.imageUrl})` }}>
-            <div className="category-name">
-                <p>{category.displayName}</p>
-                <p>Explorar</p>
-            </div>
-        </div>
-    )
+  return (
+    <CategoryItemContainer backgroundImage={category.imageUrl}>
+      <CategoryName>
+        <p>{category.displayName}</p>
+        <p>Explorar</p>
+      </CategoryName>
+    </CategoryItemContainer>
+  )
 }
 
 export default CategoryItem
