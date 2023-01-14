@@ -1,19 +1,28 @@
 import { FunctionComponent } from 'react'
 import { BsCart3 } from 'react-icons/bs'
+import {
+  HeaderContainer,
+  HeaderItem,
+  HeaderItems,
+  HeaderTitle
+} from './header.styles'
 import './header.styles.css'
 
 const Header: FunctionComponent = () => {
-    return <div className="header-container">
-        <h2 className="header-title">CLUB CLOTHING</h2>
-        <div className="header-items">
-            <div className="header-item">Explorar</div>
-            <div className="header-item">Login</div>
-            <div className="header-item">Criar Conta</div>
-            <div className="header-item">
-                <BsCart3 size='25' />
-                <p style={{ marginLeft: 5 }}>5</p></div>
-        </div>
-    </div>
+  return (
+    <HeaderContainer>
+      <HeaderTitle>CLUB CLOTHING</HeaderTitle>
+      <HeaderItems>
+        <HeaderItem>Explorar</HeaderItem>
+        <HeaderItem>Login</HeaderItem>
+        <HeaderItem>Criar Conta</HeaderItem>
+        <HeaderItem>
+          <BsCart3 size="25" />
+          <p style={{ marginLeft: 5 }}>5</p>
+        </HeaderItem>
+      </HeaderItems>
+    </HeaderContainer>
+  )
 }
 
 export default Header
